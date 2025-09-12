@@ -1,0 +1,5 @@
+# Python dependencies
+fastapi
+uvicorn
+requests
+sqlite3
