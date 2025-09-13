@@ -1,0 +1,86 @@
+# Coral Protocol Agent Configuration - Context Assistant
+agent:
+  name: "Context Assistant"
+  version: "1.0.0"
+  description: "Provides voice briefings and executes user commands using AI reasoning"
+  author: "Context Catcher Team"
+  license: "MIT"
+  
+  capabilities:
+    - "voice_synthesis"
+    - "command_parsing"
+    - "daily_briefings"
+    - "task_execution"
+    - "ai_reasoning"
+  
+  inputs:
+    - name: "user_commands"
+      type: "voice_input"
+      description: "Voice commands from the user"
+    
+    - name: "organized_context"
+      type: "database"
+      description: "Organized context threads from the organizer"
+  
+  outputs:
+    - name: "voice_briefings"
+      type: "audio"
+      description: "Generated voice briefings using ElevenLabs"
+    
+    - name: "command_results"
+      type: "action"
+      description: "Executed commands and their results"
+  
+  behavior:
+    mode: "interactive"
+    response_time: 2
+    voice_model: "eleven_multilingual_v2"
+    reasoning_model: "gpt-5"
+  
+  voice_config:
+    provider: "elevenlabs"
+    voice: "Rachel"
+    speed: 1.0
+    pitch: 1.0
+  
+  command_parsing:
+    model: "gpt-5"
+    supported_actions:
+      - "open_app"
+      - "search_web"
+      - "navigate_to"
+      - "create_task"
+      - "schedule_meeting"
+  
+  briefing_types:
+    - name: "yesterday_recap"
+      description: "Summary of yesterday's activities"
+      frequency: "daily"
+      time: "09:00"
+    
+    - name: "today_plan"
+      description: "Today's tasks and meetings"
+      frequency: "daily"
+      time: "09:05"
+  
+  database:
+    type: "sqlite"
+    path: "context.db"
+    tables:
+      - "voice_briefings"
+      - "user_commands"
+  
+  api:
+    endpoints:
+      - path: "/briefing/yesterday"
+        method: "GET"
+        description: "Get yesterday's recap"
+      
+      - path: "/briefing/today"
+        method: "GET"
+        description: "Get today's plan"
+      
+      - path: "/command"
+        method: "POST"
+        description: "Process voice command"
+        body_schema: "command_schema"

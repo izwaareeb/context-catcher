@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context Catcher</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>Context Catcher</h1>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot active"></div>
+                <span>Active</span>
+            </div>
+        </div>
+
+        <!-- Main Action Buttons -->
+        <div class="action-buttons">
+            <button class="action-btn yesterday-btn" id="yesterdayBtn">
+                <div class="btn-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>Yesterday</h3>
+                    <p>Yesterday's recap</p>
+                </div>
+                <div class="btn-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </button>
+
+            <button class="action-btn today-btn" id="todayBtn">
+                <div class="btn-icon">
+                    <i class="fas fa-calendar-day"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>Today</h3>
+                    <p>Today's plan</p>
+                </div>
+                <div class="btn-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </button>
+
+            <button class="action-btn command-btn" id="commandBtn">
+                <div class="btn-icon">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>Command</h3>
+                    <p>Voice command</p>
+                </div>
+                <div class="btn-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </button>
+        </div>
+
+        <!-- Command Input Modal -->
+        <div class="modal" id="commandModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Voice Command</h2>
+                    <button class="close-btn" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="command-input-container">
+                        <input type="text" id="commandInput" placeholder="Type or speak your command...">
+                        <button class="voice-btn" id="voiceBtn">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+                    <div class="command-examples">
+                        <h4>Example commands:</h4>
+                        <div class="example-commands">
+                            <span class="example-cmd">"Open Gmail"</span>
+                            <span class="example-cmd">"Search YouTube for lo-fi music"</span>
+                            <span class="example-cmd">"Google vendor pricing"</span>
+                            <span class="example-cmd">"Open Notion Q3 doc"</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="cancelBtn">Cancel</button>
+                    <button class="btn-primary" id="executeBtn">Execute</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Response Display -->
+        <div class="response-container" id="responseContainer">
+            <div class="response-header">
+                <h3>Response</h3>
+                <button class="close-response" id="closeResponse">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="response-content" id="responseContent">
+                <!-- Response content will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Processing...</p>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="stat-item">
+                <i class="fas fa-envelope"></i>
+                <span class="stat-number" id="emailCount">0</span>
+                <span class="stat-label">Emails</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-comments"></i>
+                <span class="stat-number" id="slackCount">0</span>
+                <span class="stat-label">Slack</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-tasks"></i>
+                <span class="stat-number" id="taskCount">0</span>
+                <span class="stat-label">Tasks</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-video"></i>
+                <span class="stat-number" id="meetingCount">0</span>
+                <span class="stat-label">Meetings</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

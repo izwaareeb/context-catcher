@@ -1,0 +1,56 @@
+# Coral Protocol Agent Configuration - Context Organizer
+agent:
+  name: "Context Organizer"
+  version: "1.0.0"
+  description: "Organizes captured context into intelligent threads using GPT-5 embeddings"
+  author: "Context Catcher Team"
+  license: "MIT"
+  
+  capabilities:
+    - "ai_embeddings"
+    - "thread_organization"
+    - "similarity_matching"
+    - "context_clustering"
+  
+  inputs:
+    - name: "raw_events"
+      type: "database"
+      description: "Unprocessed context events from the listener"
+  
+  outputs:
+    - name: "organized_threads"
+      type: "database"
+      description: "Intelligently organized context threads"
+    
+    - name: "embeddings"
+      type: "database"
+      description: "GPT-5 embeddings for similarity matching"
+  
+  behavior:
+    mode: "batch_processing"
+    processing_interval: 60
+    batch_size: 50
+    similarity_threshold: 0.8
+  
+  ai_config:
+    embedding_model: "text-embedding-3-large"
+    similarity_algorithm: "cosine_similarity"
+    clustering_method: "hierarchical"
+  
+  database:
+    type: "sqlite"
+    path: "context.db"
+    tables:
+      - "embeddings"
+      - "threads"
+      - "thread_events"
+  
+  api:
+    endpoints:
+      - path: "/organize"
+        method: "POST"
+        description: "Trigger context organization"
+      
+      - path: "/threads"
+        method: "GET"
+        description: "Get organized threads"

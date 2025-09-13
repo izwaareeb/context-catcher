@@ -1,0 +1,41 @@
+
+
+
+{
+    "agents": [
+      {
+        "name": "Context Listener",
+        "id": "listener",
+        "version": "1.0.0",
+        "status": "active",
+        "endpoint": "http://localhost:8001",
+        "capabilities": ["context_capture", "real_time_monitoring"],
+        "dependencies": ["slack", "gmail", "notion", "zoom"]
+      },
+      {
+        "name": "Context Organizer", 
+        "id": "organizer",
+        "version": "1.0.0",
+        "status": "active",
+        "endpoint": "http://localhost:8002",
+        "capabilities": ["ai_embeddings", "thread_organization"],
+        "dependencies": ["openai", "numpy"]
+      },
+      {
+        "name": "Context Assistant",
+        "id": "assistant", 
+        "version": "1.0.0",
+        "status": "active",
+        "endpoint": "http://localhost:8003",
+        "capabilities": ["voice_synthesis", "command_parsing"],
+        "dependencies": ["elevenlabs", "openai"]
+      }
+    ],
+    "metadata": {
+      "project": "Context Catcher",
+      "version": "1.0.0",
+      "description": "Agentic assistant for context capture and voice briefings",
+      "author": "Context Catcher Team",
+      "license": "MIT"
+    }
+  }
